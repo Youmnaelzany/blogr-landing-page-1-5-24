@@ -1,0 +1,127 @@
+---
+import "@/styles/globals.css";
+---
+
+<!-- THE HEADER -->
+<header class="headerWrapper px-6 pt-14 xl:px-[10.44rem] xl:pt-[3.94rem]">
+  <!-- LOGO & MENU, CLOSE BUTTON -->
+  <div class="flex items-center justify-between">
+    <!-- LOGO -->
+    <img
+      src="/images/logo.svg"
+      alt="logo"
+      class="h-8 w-[5.125rem] xl:h-10 xl:w-[6.3125rem]"
+    />
+    <!-- MENU BUTTON -->
+    <img
+      src="/images/icon-hamburger.svg"
+      alt="icon-hamburger"
+      class="xl:hidden"
+      id="openButton"
+    />
+    <!-- CLOSE BUTTON -->
+    <img src="/images/icon-close.svg" alt="" class="hidden" id="closeButton" />
+  </div>
+  <!-- MOBILE MENUBAR -->
+  <nav
+    class="menuBarWrapper absolute top-[8.5rem] h-[31.9375rem] w-[20.25rem] rounded-[0.3125rem] bg-white pb-10 pt-6"
+    id="menuBarWrapper"
+  >
+    <ul
+      class="relative flex flex-col items-center gap-6 text-center after:absolute after:-bottom-[12.5rem] after:left-[1.438rem] after:h-[0.0625rem] after:w-[17.25rem] after:bg-[#E5E5E5]"
+    >
+      <li class="">
+        <a
+          href="/"
+          class="flex items-center gap-2 text-lg font-semibold leading-7 text-[#1F3E5A]"
+          >Product <img src="/images/icon-arrow-dark.svg" alt="" class="" /></a
+        >
+      </li>
+      <li class="">
+        <a
+          href="/"
+          class="flex items-center gap-2 text-lg font-semibold leading-7 text-[#1F3E5A]"
+          >Company <img src="/images/icon-arrow-dark.svg" alt="" class="" /></a
+        >
+      </li>
+      <li class="relative left-[0.062rem] right-0 flex flex-col items-center">
+        <a
+          href="/"
+          class="flex items-center gap-2 text-lg font-semibold leading-7 text-[#1F3E5A]"
+          id="arrowButton"
+          >Connect <img src="/images/icon-arrow-dark.svg" alt="" class="" /></a
+        >
+        <ul
+          class="mt-6 hidden h-[9.375rem] w-[17.25rem] flex-col items-center gap-3 rounded-[0.3125rem] bg-[#efeff0] pb-[1.56rem] pt-[1.06rem] text-center opacity-[0.08rem]"
+          id="menuBox"
+        >
+          <li class="">
+            <a
+              href=""
+              class="text-base font-semibold leading-[1.75rem] text-[#1F3E5A] opacity-75"
+              >Contact
+            </a>
+          </li>
+          <li class="">
+            <a
+              href=""
+              class="text-base font-semibold leading-[1.75rem] text-[#1F3E5A] opacity-75"
+              >Newsletter</a
+            >
+          </li>
+          <li class="">
+            <a
+              href=""
+              class="text-base font-semibold leading-[1.75rem] text-[#1F3E5A] opacity-75"
+              >LinkedIn</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <!-- Login & Signup BUTTONS -->
+    <div class="flex items-center gap-6">
+      <button
+        type="button"
+        class="text-lg font-semibold leading-7 text-[#1F3E5A]">Login</button
+      >
+    </div>
+  </nav>
+</header>
+
+<style is:global>
+  .headerWrapper {
+    background: linear-gradient(135deg, #ff8f71 0%, #ff3e55 100%);
+  }
+  .menuBarWrapper {
+    box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.24);
+  }
+</style>
+
+<script is:inline>
+  const openButton = document.getElementById("openButton");
+  const closeButton = document.getElementById("closeButton");
+  const menuBarWrapper = document.getElementById("menuBarWrapper");
+  const arrowButton = document.getElementById("arrowButton");
+  const menuBox = document.getElementById("menuBox");
+
+  openButton.addEventListener("click", () => {
+    menuBarWrapper.classList.remove("hidden");
+    closeButton.classList.remove("hidden");
+    openButton.classList.add("hidden");
+  });
+
+  closeButton.addEventListener("click", () => {
+    menuBarWrapper.classList.add("hidden");
+    closeButton.classList.add("hidden");
+    openButton.classList.remove("hidden");
+  });
+
+  arrowButton.addEventListener("click", () => {
+    if (menuBox.classList.contains("hidden")) {
+      menuBox.classList.remove("hidden");
+    } else {
+      menuBox.classList.add("hidden");
+    }
+  });
+</script>
